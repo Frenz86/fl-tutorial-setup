@@ -1,0 +1,7 @@
+FROM nvflare:base
+
+# Copy files
+COPY build/nvflare-tutorial/prod_00/admin@some.org /workspace
+
+# Set entrypoint
+ENTRYPOINT ["/bin/bash"]

@@ -1,0 +1,8 @@
+FROM nvflare:base
+
+# Copy files
+COPY build/nvflare-tutorial/prod_00/client1 /workspace
+ADD build/startup.sh /workspace/startup.sh
+
+# Set entrypoint
+ENTRYPOINT ["/bin/bash", "/workspace/startup.sh"]

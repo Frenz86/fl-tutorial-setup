@@ -1,0 +1,7 @@
+FROM nvcr.io/nvidia/pytorch:22.02-py3
+
+# Install dependencies
+RUN pip install nvflare
+
+# Set default work dir to /workspace
+WORKDIR /workspace

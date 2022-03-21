@@ -1,0 +1,70 @@
+# org is to describe each participant's organization
+# schema change: org is now mandatory
+
+# the name of this project
+api_version: 2
+name: nvflare-tutorial
+description: Example project.yml for NVFlare provision
+
+participants:
+  - name: server.fl.tutorial
+    type: server
+    org: ntu
+    fed_learn_port: 8002
+    admin_port: 8003
+    enable_byoc: true
+
+  - name: client1
+    type: client
+    org: ntu
+    enable_byoc: true
+
+  - name: client2
+    type: client
+    org: ntu
+    enable_byoc: true
+
+  - name: admin@some.org
+    type: admin
+    org: ntu
+    roles:
+      - super
+
+# The same methods in all builders are called in their order defined in builders section
+builders:
+  - path: nvflare.lighter.impl.workspace.WorkspaceBuilder
+    args:
+      template_file: master_template.yml
+  - path: nvflare.lighter.impl.template.TemplateBuilder
+  - path: nvflare.lighter.impl.static_file.StaticFileBuilder
+    args:
+      # config_folder can be set to inform NVFlare where to get configuration
+      config_folder: config
+      # when docker_image is set to a docker image name, docker.sh will be generated on server/client/admin
+      # docker_image: "nvflare"
+  - path: nvflare.lighter.impl.auth_policy.AuthPolicyBuilder
+    args:
+      orgs:
+        ntu:
+          - relaxed
+      roles:
+        super: super user of system
+      groups:
+        relaxed:
+          desc: org group with relaxed policies
+          rules:
+            allow_byoc: true
+            allow_custom_datalist: true
+      disabled: false
+  - path: nvflare.lighter.impl.cert.CertBuilder
+  - path: nvflare.lighter.impl.he.HEBuilder
+    args:
+      poly_modulus_degree: 8192
+      coeff_mod_bit_sizes: [60, 40, 40]
+      scale_bits: 40
+      scheme: CKKS
+  - path: nvflare.lighter.impl.signature.SignatureBuilder
+  - path: nvflare.lighter.impl.workspace.DistributionBuilder
+    args:
+      zip_password: false
+

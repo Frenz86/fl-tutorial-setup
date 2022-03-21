@@ -1,0 +1,25 @@
+version: "2.3"
+services:
+  server:
+    image: nvflare:server
+    networks:
+      backend:
+        aliases:
+          - server.fl.tutorial
+    runtime: nvidia
+
+  client1:
+    image: nvflare:client1
+    networks:
+      - backend
+    runtime: nvidia
+
+  client2:
+    image: nvflare:client2
+    networks:
+      - backend
+    runtime: nvidia
+
+networks:
+  backend:
+    driver: "bridge"
