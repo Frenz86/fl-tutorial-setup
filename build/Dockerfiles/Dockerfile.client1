@@ -2,6 +2,7 @@ FROM nvflare:base
 
 # Copy files
 COPY build/nvflare-tutorial/prod_00/client1 /workspace
+COPY build/dataset /workspace/dataset
 ADD build/startup.sh /workspace/startup.sh
 
 # Set entrypoint
