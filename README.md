@@ -1,4 +1,4 @@
-NVFlare Tutorial Environment Setup
+## NVFlare Tutorial Environment Setup
 
 1. Run `build.sh` to generate NVFLare files and build all images.
 2. Run `deploy.sh` or `docker-compose up -d` to startup server and two clients.
