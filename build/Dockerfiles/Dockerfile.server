@@ -1,7 +1,7 @@
 FROM nvflare:base
 
 # Copy files
-COPY build/nvflare-tutorial/prod_00/server.fl.tutorial /workspace
+COPY build/example_project/prod_00/server.fl.tutorial /workspace
 ADD build/startup.sh /workspace/startup.sh
 
 # Set entrypoint

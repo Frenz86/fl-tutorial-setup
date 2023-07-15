@@ -1,7 +1,7 @@
 FROM nvflare:base
 
 # Copy files
-COPY build/nvflare-tutorial/prod_00/client2 /workspace
+COPY build/example_project/prod_00/client2 /workspace
 COPY build/dataset /workspace/dataset
 ADD build/startup.sh /workspace/startup.sh
 

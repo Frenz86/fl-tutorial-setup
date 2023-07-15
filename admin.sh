@@ -6,4 +6,5 @@ docker run \
   --network=${PWD##*/}_backend \
   -v $PWD/transfer:/workspace/transfer \
   nvflare:admin \
-  /workspace/startup/fl_admin.sh
+  #/workspace/startup/fl_admin.sh
+  bin/bash

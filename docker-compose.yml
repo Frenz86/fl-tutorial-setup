@@ -6,19 +6,36 @@ services:
       backend:
         aliases:
           - server.fl.tutorial
-    runtime: nvidia
-
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
   client1:
     image: nvflare:client1
     networks:
       - backend
-    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
 
   client2:
     image: nvflare:client2
     networks:
       - backend
-    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
 
 networks:
   backend:
