@@ -7,4 +7,8 @@ pip install -r requirements.txt
 ./admin.sh
 
 
+## link issue:
+#qui issue molto recente
+https://github.com/NVIDIA/NVFlare/discussions/1731
+
 
