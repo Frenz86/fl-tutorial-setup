@@ -12,3 +12,18 @@ pip install -r requirements.txt
 https://github.com/NVIDIA/NVFlare/discussions/1731
 
 
+## ottimo esempio ###
+https://github.com/pooya-mohammadi/federated-learning-monai-nvflare
+
+## decorator
+https://github.com/YuanTingHsieh/demo
+
+
+##documentazione v2.0
+https://github.com/ajulyav/NVIDIA_FLARE
+
+##esempi new 2.3
+https://github.com/eduardpauliuc/fedpix
+
+
+
